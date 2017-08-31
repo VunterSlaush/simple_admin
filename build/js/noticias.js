@@ -1,3 +1,5 @@
+var URL_BASE = "https://hyonode.herokuapp.com";
+
 var noticeMainTable;
 function noticias()
 {

@@ -23,7 +23,7 @@ function putUserData(user)
   userToEdit = user;
 }
 
-function editUser()
+function editUser() // TODO server - side
 {
   if($("#perfil_name").val() == "" || $("#perfil_username").val() == "")
   {
@@ -47,7 +47,7 @@ function editUser()
 
     $.ajax({
         type: 'POST',
-        url: '/user/updateAnother',
+        url: 'https://hyonode.herokuapp.com/user/updateAnother',
         data: JSON.stringify(dataToSend),
         contentType:'application/json',
         dataType: 'json',

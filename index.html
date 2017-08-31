@@ -31,15 +31,15 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1> H y O Admin</h1>
+              <h1 id="login_text"> H y O Admin</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text"  id="username" class="form-control" placeholder="Usuario" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password"  id="password" class="form-control" placeholder="Contraseña" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <a class="btn btn-default submit" onclick="login()">Entrar</a>
               </div>
 
               <div class="clearfix"></div>
@@ -55,5 +55,51 @@
         </div>
       </div>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
+      <script type="text/javascript">
+        $('#password').keypress(function (e) {
+          if (e.which == 13) {
+            login();
+            return false;    //<---- Add this line
+          }
+        });
+        function login()
+        {
+            var dataToSend = {};
+            dataToSend.username = $("#username").val();
+            dataToSend.password = $("#password").val();
+            $.ajax({
+                type: 'POST',
+                crossDomain:true,
+                url: 'https://hyonode.herokuapp.com/login',
+                data: JSON.stringify(dataToSend),
+                contentType:'application/json',
+                dataType: 'json',
+                success: function (data)
+                {
+                    if (data.success)
+                    {
+                      data.username = dataToSend.username;
+                      localStorage.setItem("user", JSON.stringify(data));
+                      location.href = location.href + "production";
+                    }
+                    else
+                      $('#login_text').text("Datos incorrectos :c");
+
+                },
+                failure: function (response, status) {
+                   // failure code here
+                   $('#login_text').text("Datos incorrectos :c");
+                },
+                error: function ()
+                {
+                  $('#login_text').text("Datos incorrectos :c");
+                }
+              });
+        }
+      </script>
   </body>
 </html>

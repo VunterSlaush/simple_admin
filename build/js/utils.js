@@ -2,8 +2,6 @@ var URL_BASE = "https://hyonode.herokuapp.com";
 
 function createTable(model)
 {
-
-
   let table = $("<table>", {class: " table table-striped jambo_table"});
   let head =  $(document.createElement('thead'));
   let tr =  $("<tr>",{ class:"headings"});
@@ -174,10 +172,11 @@ function simpleInputDialog(title,callback)
 
 function findAllUsers(callback)
 {
+    console.log("FIND ALL USERS!");
   $.ajax({
       crossDomain:true,
       type: 'GET',
-      url: URL_BASE+'/users',
+      url: "https://hyonode.herokuapp.com/users",
       contentType:'application/json',
       dataType: 'json',
       success: function (data)

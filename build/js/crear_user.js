@@ -31,13 +31,13 @@ function add_user()
   dataToSend.password = $("#add_user_pass").val();
   $.ajax({
       type: 'POST',
-      url: '/signup',
+      url: 'https://hyonode.herokuapp.com/signup',
       data: JSON.stringify(dataToSend),
       contentType:'application/json',
       dataType: 'json',
       success: function (data)
       {
-          if (data.success)
+          if (data.success || data.id)
           {
             showToast('success','Usuario Agregado satisfactoriamente :D');
           }
