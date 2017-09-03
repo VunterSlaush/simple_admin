@@ -21,15 +21,6 @@
         </div>
 
         <div class="col-md-12 form-group has-feedback">
-          <select class="form-control" name="" id="notice_type">
-            <option value="noticia">Noticia</option>
-            <option value="tip">Tip</option>
-            <option value="carousel">Carousel</option>
-          </select>
-          <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
-        </div>
-
-        <div class="col-md-12 form-group has-feedback">
           <textarea type="text" class="form-control" id="notice_description" placeholder="Descripcion"/>
           <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
         </div>
@@ -37,15 +28,10 @@
       </form>
         <!-- TODO a;adir direccion de subida -->
 
-      <div id="dropzone" class="dropzone needsclick dz-clickable" >
-          <div class="dz-message needsclick">
-            Drop files here or click to upload.<br>
-            <span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-          </div>
-      </div>
 
 
-        <a class="btn btn-success col-md-8 col-md-offset-2" onclick="addNotice();">Agregar Noticia</a>
+
+        <a class="btn btn-success col-md-8 col-md-offset-2" onclick="updateNotice();">Actualizar Noticia</a>
       </div>
   </div>
 </div>

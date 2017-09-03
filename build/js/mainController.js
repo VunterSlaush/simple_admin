@@ -2,8 +2,8 @@ var user;
 
 $( document ).ready(function()
 {
-//  user = JSON.parse(localStorage.getItem("user"));
-  //$(".user_name_here").text(user.nombre);
+  user = JSON.parse(localStorage.getItem("user"));
+  $(".user_name_here").text(user.username);
   $(window).on('hashchange', function() {
       loadContent();
   });
