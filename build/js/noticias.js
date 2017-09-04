@@ -18,12 +18,12 @@ function noticias()
       },
       failure: function (response, status) {
          // failure code here
-         showToast('error',"Error inesperado :(");
+         showToast('error',"Error inesperado ");
 
       },
       error: function ()
       {
-        showToast('error',"Error inesperado :(");
+        showToast('error',"Error inesperado ");
       }
     });
 

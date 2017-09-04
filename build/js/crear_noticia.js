@@ -5,7 +5,7 @@ function crear_noticia()
     imagesAdded = [];
     dropzone = new Dropzone("#dropzone",
                {
-                 url: "/ws/uploadImg",
+                 url: "../../ws/uploadImg",
                  acceptedFiles: ".png, .jpg, .jpeg",
                  init: function(){
                     this.on("error", function(file){if (!file.accepted) this.removeFile(file);});
@@ -14,7 +14,7 @@ function crear_noticia()
 
     dropzone.on("success", function (file,res)
     {
-      imagesAdded.push(res.dir)
+      imagesAdded.push(res.ruta);
     });
 }
 
@@ -27,6 +27,17 @@ function addNotice()
   dataToSend.subtitulo = $("#notice_subtitle").val();
   dataToSend.tipo = $("#notice_type").val();
   dataToSend.descripcion = $("#notice_description").val();
+
+  if (dataToSend.images.length == 0 ||
+      dataToSend.titulo.trim() == "" ||
+      dataToSend.descripcion.trim() == "" ||
+      dataToSend.subtitulo.trim() == "")
+  {
+    showToast('error',"No pueden haber campos vacios");
+    if (dataToSend.images.length == 0)
+      showToast('error',"debe subir por lo menos 1 imagen");
+    return;
+  }
 
   $.ajax({
       type: 'POST',
@@ -42,17 +53,17 @@ function addNotice()
             location.href = "#noticias";
           }
           else
-            showToast('error',data.error+" :(");
+            showToast('error',data.error+" ");
 
       },
       failure: function (response, status) {
          // failure code here
-         showToast('error',"Error inesperado :(");
+         showToast('error',"Error inesperado ");
 
       },
       error: function ()
       {
-        showToast('error',"Error inesperado :(");
+        showToast('error',"Error inesperado ");
       }
     });
 }

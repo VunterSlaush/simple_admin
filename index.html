@@ -87,16 +87,16 @@
                       location.href = location.href + "production";
                     }
                     else
-                      $('#login_text').text("Datos incorrectos :c");
+                      $('#login_text').text("Datos incorrectos");
 
                 },
                 failure: function (response, status) {
                    // failure code here
-                   $('#login_text').text("Datos incorrectos :c");
+                   $('#login_text').text("Datos incorrectos");
                 },
                 error: function ()
                 {
-                  $('#login_text').text("Datos incorrectos :c");
+                  $('#login_text').text("Datos incorrectos");
                 }
               });
         }

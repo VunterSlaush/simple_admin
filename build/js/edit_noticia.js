@@ -20,12 +20,12 @@ function edit_noticia(id)
       },
       failure: function (response, status) {
          // failure code here
-         showToast('error',"Error inesperado :(");
+         showToast('error',"Error inesperado ");
 
       },
       error: function ()
       {
-        showToast('error',"Error inesperado :(");
+        showToast('error',"Error inesperado ");
       }
     });
 
@@ -67,17 +67,17 @@ function updateNotice() // TODO add validaciones
             window.location.href = "#noticias";
           }
           else
-            showToast('error',"Error inesperado :(");
+            showToast('error',"Error inesperado ");
 
       },
       failure: function (response, status) {
          // failure code here
-         showToast('error',"Error inesperado :(");
+         showToast('error',"Error inesperado ");
 
       },
       error: function ()
       {
-        showToast('error',"Error inesperado :(");
+        showToast('error',"Error inesperado ");
       }
     });
 }

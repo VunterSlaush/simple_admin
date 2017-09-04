@@ -42,17 +42,17 @@ function add_user()
             showToast('success','Usuario Agregado satisfactoriamente :D');
           }
           else
-            showToast('error',data.error+" :(");
+            showToast('error',data.error+" ");
 
       },
       failure: function (response, status) {
          // failure code here
-         showToast('error',"Error inesperado :(");
+         showToast('error',"Error inesperado ");
 
       },
       error: function ()
       {
-        showToast('error',"Error inesperado :(");
+        showToast('error',"Error inesperado ");
       }
     });
 
