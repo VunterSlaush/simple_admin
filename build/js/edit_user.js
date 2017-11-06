@@ -47,7 +47,7 @@ function editUser() // TODO server - side
 
     $.ajax({
         type: 'POST',
-        url: 'https://hyonode.herokuapp.com/user/updateAnother',
+        url: 'https://hyonode.herokuapp.com/user/update',
         data: JSON.stringify(dataToSend),
         contentType:'application/json',
         dataType: 'json',
