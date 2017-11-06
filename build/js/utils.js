@@ -94,6 +94,7 @@ function deleteSomething(route,id, successCallback)
   dataToSend.id = id;
   $.ajax({
       type: 'POST',
+      crossDomain:true,
       url: URL_BASE + route,
       data: JSON.stringify(dataToSend),
       contentType:'application/json',
