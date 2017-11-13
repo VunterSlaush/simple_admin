@@ -14,14 +14,20 @@ function crear_noticia()
 
     dropzone.on("success", function (file,res)
     {
-      imagesAdded.push(res.ruta);
+
+      if (!res.success){
+        this.removeFile(file);
+        showToast('error',res.message);
+      }
+
+      imagesAdded.push(res.dir);
     });
 
     dropzone.on("error", function (file,res)
     {
       //imagesAdded.push(res.ruta);
-
-      showToast('error',"Error al subir la imagen");
+      this.removeFile(file);
+      showToast('error',res.message);
     });
 }
 
