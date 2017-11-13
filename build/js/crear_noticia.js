@@ -16,6 +16,13 @@ function crear_noticia()
     {
       imagesAdded.push(res.ruta);
     });
+
+    dropzone.on("error", function (file,res)
+    {
+      //imagesAdded.push(res.ruta);
+
+      showToast('error',"Error al subir la imagen");
+    });
 }
 
 
@@ -54,7 +61,6 @@ function addNotice()
           }
           else
             showToast('error',data.error+" ");
-
       },
       failure: function (response, status) {
          // failure code here
